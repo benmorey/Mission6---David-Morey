@@ -40,5 +40,13 @@ namespace Mission6___David_Morey.Controllers
 
             return View("Submitted", response); //Returns a confirmation
         }
+
+        public IActionResult MovieIndex() 
+        { 
+            //Linq Query
+            var display = _context.Movies.OrderBy(x => x.Title).ToList();
+
+            return View();
+        }
     }
 }

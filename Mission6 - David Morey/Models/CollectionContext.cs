@@ -9,6 +9,6 @@ namespace Mission6___David_Morey.Models
         public CollectionContext(DbContextOptions<CollectionContext> options) : base(options) //Constructor to make the database
         { }
 
-        public DbSet<Collection> Collection { get; set; } //Making a table within the database
+        public DbSet<Movies> Movies { get; set; } //Making a table within the database
     }
 }
