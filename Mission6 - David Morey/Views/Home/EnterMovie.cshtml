@@ -11,8 +11,11 @@
     <div>
         <div>
             <form method="post">
-                <label asp-for="Category">Category</label>
-                <input asp-for="Category" required />
+                <label asp-for="MovieID" class="hidden"></label>
+                <input asp-for="MovieID" class="hidden" />
+                <br />
+                <label asp-for="CategoryID">Category</label>
+                <input asp-for="CategoryID" required />
                 <br />
                 <label asp-for="Title">Title</label>
                 <input asp-for="Title" required />
@@ -37,8 +40,14 @@
                     <option value="Yes">Yes</option>
                 </select>
                 <br />
-                <label asp-for="Lent">Lent To:</label>
-                <input asp-for="Lent" />
+                <label asp-for="LentTo">Lent To:</label>
+                <input asp-for="LentTo" />
+                <br />
+                <label asp-for="CopiedToPlex">Copied to Plex?</label>
+                <select asp-for="CopiedToPlex">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
                 <br />
                 <label asp-for="Notes">Notes</label>
                 <input asp-for="Notes" maxlength="25" />
