@@ -29,24 +29,27 @@ namespace Mission6___David_Morey.Controllers
         [HttpGet]
         public IActionResult EnterMovie()
         {
+            ViewBag.categories = _context.Categories.OrderBy(x => x.CategoryName).ToList();
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult EnterMovie(Collection response)
+        public IActionResult EnterMovie(Movies response)
         {
-            _context.Collection.Add(response); //Stores a record in the table
+            _context.Movies.Add(response); //Stores a record in the table
             _context.SaveChanges(); //Saves that addition to 'MovieDatabase.sqlite'
 
             return View("Submitted", response); //Returns a confirmation
         }
 
         public IActionResult MovieIndex() 
-        { 
+        {
             //Linq Query
-            var display = _context.Movies.OrderBy(x => x.Title).ToList();
+            var display = _context.Movies.Where(x => x.Year >= 1888)
+                .OrderBy(x => x.Title).ToList();
 
-            return View();
+            return View(display);
         }
     }
 }

@@ -10,7 +10,7 @@ using Mission6___David_Morey.Models;
 namespace Mission6___David_Morey.Migrations
 {
     [DbContext(typeof(CollectionContext))]
-    [Migration("20240223194951_initial")]
+    [Migration("20240223205511_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -19,24 +19,41 @@ namespace Mission6___David_Morey.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
 
-            modelBuilder.Entity("Mission6___David_Morey.Models.Collection", b =>
+            modelBuilder.Entity("Mission6___David_Morey.Models.Categories", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Mission6___David_Morey.Models.Movies", b =>
                 {
                     b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryName")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CopiedToPlex")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Edited")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Edited")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
                         .HasColumnType("TEXT");
@@ -45,20 +62,18 @@ namespace Mission6___David_Morey.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Year")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("MovieID");
 
-                    b.ToTable("Collection");
+                    b.ToTable("Movies");
                 });
 #pragma warning restore 612, 618
         }

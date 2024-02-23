@@ -2,7 +2,7 @@
     ViewData["Title"] = "Enter a Movie into the Collection";
 }
 
-@model Mission6___David_Morey.Models.Collection
+@model Mission6___David_Morey.Models.Movies
 
 <h1 class="text-center display-4">@ViewData["Title"]</h1>
 
@@ -14,8 +14,14 @@
                 <label asp-for="MovieID" class="hidden"></label>
                 <input asp-for="MovieID" class="hidden" />
                 <br />
-                <label asp-for="CategoryID">Category</label>
-                <input asp-for="CategoryID" required />
+                <label asp-for="CategoryId">Category</label>
+                <select>
+                    <option value="">Select a Category</option>
+                    @foreach (Category c in ViewBag.categories)
+                    {
+                        <option value="@c.CategoryId">@c.CategoryName</option>
+                    }
+                </select>
                 <br />
                 <label asp-for="Title">Title</label>
                 <input asp-for="Title" required />

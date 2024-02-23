@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6___David_Morey.Models
 {
@@ -8,11 +9,13 @@ namespace Mission6___David_Morey.Models
         [Key]
         [Required]
         public int MovieID { get; set; }
-        public int CategoryID { get; set; }
+        [ForeignKey("CategoryId")]
+        public int? CategoryId { get; set; }
+        public Category? CategoryName {  get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
-        public string Director { get; set; }
-        public string Rating { get; set; }
+        public string? Director { get; set; }
+        public string? Rating { get; set; }
         //Allows the last three rows to be NULL
         public int Edited { get; set; }
         public string? LentTo { get; set; }
