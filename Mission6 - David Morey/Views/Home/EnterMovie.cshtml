@@ -11,11 +11,10 @@
     <div>
         <div>
             <form method="post">
-                <label asp-for="MovieID" class="hidden"></label>
-                <input asp-for="MovieID" class="hidden" />
+                <input asp-for="MovieID" type="hidden" /> @*Hidden Movie ID to call a specific record*@
                 <br />
-                <label asp-for="CategoryId">Category</label>
-                <select>
+                <label asp-for="CategoryId">Category</label> @*Selecting a Category*@
+                <select asp-for="CategoryId">
                     <option value="">Select a Category</option>
                     @foreach (Category c in ViewBag.categories)
                     {
@@ -23,43 +22,46 @@
                     }
                 </select>
                 <br />
-                <label asp-for="Title">Title</label>
-                <input asp-for="Title" required />
+                <label asp-for="Title">Title</label> @*Writing the title*@
+                <input asp-for="Title" required/>
                 <br />
-                <label asp-for="Year">Year</label>
-                <input asp-for="Year" required />
+                <label asp-for="Year">Year</label> @*Recording the year of creation*@
+                <input asp-for="Year" type=number min="1888" max="2024" required/>
                 <br />
-                <label asp-for ="Director">Director</label>
-                <input asp-for="Director" required />
+                <label asp-for="Director">Director</label> @*Recording the director*@
+                <input asp-for="Director" />
                 <br />
-                <label asp-for="Rating">Rating</label>
-                <select asp-for="Rating" required>
+                <label asp-for="Rating">Rating</label> @*Recording Rating of the Movie*@
+                <select asp-for="Rating" >
                     <option value="G">G</option>
                     <option value="PG">PG</option>
                     <option value="PG-13">PG-13</option>
                     <option value="R">R</option>
                 </select>
                 <br />
-                <label asp-for="Edited">Edited</label>
-                <select asp-for="Edited">
+                <label asp-for="Edited">Edited</label> @*Recording if the movie was edited*@
+                <select asp-for="Edited" required>
+                    <option selected>Options:</option>
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
                 <br />
-                <label asp-for="LentTo">Lent To:</label>
+                <label asp-for="LentTo">Lent To:</label> @*Recording if the movie was lent to someone*@
                 <input asp-for="LentTo" />
                 <br />
-                <label asp-for="CopiedToPlex">Copied to Plex?</label>
-                <select asp-for="CopiedToPlex">
+                <label asp-for="CopiedToPlex">Copied to Plex?</label> @*Recording if the movie was copied to Plex*@
+                <select asp-for="CopiedToPlex" required>
+                    <option selected>Options:</option>
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
                 <br />
-                <label asp-for="Notes">Notes</label>
+                <label asp-for="Notes">Notes</label> @*Recording Any General Notes*@
                 <input asp-for="Notes" maxlength="25" />
                 <br />
-                <button type="submit">Submit</button> @* Allows the form to be submitted*@
+                <button type="submit" asp-route-id="">Submit</button> @* Allows the form to be submitted*@
             </form>
+            <div asp-validation-summary="All"></div>
         </div>
     </div>
 </div>

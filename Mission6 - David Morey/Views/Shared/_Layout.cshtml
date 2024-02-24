@@ -12,7 +12,7 @@
 <body>
     <header>
         @* Creates the navbar*@
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">The Joel Hilton Collection</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -24,16 +24,16 @@
                     @*The actual navbar*@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> @*Allows you to go Home*@
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a> @*Allows you to go Home*@
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GettingToKnowJoel">Get to Know Joel</a> @*Allows you to go the the About page*@
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="GettingToKnowJoel">Get to Know Joel</a> @*Allows you to go the the About page*@
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterMovie">Adding a Movie to your Collection</a> @*Allows you to access the form to fill out movies to add to the collection*@
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="EnterMovie">Adding a Movie to your Collection</a> @*Allows you to access the form to fill out movies to add to the collection*@
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MovieIndex">See Collection</a> @*Allows you to access the form to fill out movies to add to the collection*@
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MovieIndex">See Collection</a> @*Allows you to access the form to fill out movies to add to the collection*@
                         </li>
                     </ul>
                 </div>
